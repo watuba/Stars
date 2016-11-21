@@ -18,9 +18,13 @@ class ViewController: UIViewController {
         let height = bounds.size.height
         let numberOfStars = Int(height/2.5)
         
-        for i in 1...numberOfStars {
+        //var stars: [UITextView] = []
+        
+        for i in 0...numberOfStars-1 {
             
             let star = UITextView()
+            star.isEditable = false
+            star.isSelectable = false
             //star.backgroundColor = UIColor.blue
             
             let randX = Int(arc4random_uniform(UInt32(width)))
@@ -32,7 +36,9 @@ class ViewController: UIViewController {
             star.addGestureRecognizer(tapGesture)
             
             star.frame = CGRect(x: randX, y: randY, width: randWidth, height: randHeight)
+            star.tag = i
             
+            //stars[i] = star
             self.view.addSubview(star)
             
         }
@@ -40,6 +46,25 @@ class ViewController: UIViewController {
     
     func handleTap(sender: UITapGestureRecognizer) {
         print("tap")
+        let bounds = UIScreen.main.bounds
+        let width = bounds.size.width
+        let height = bounds.size.height
+        
+        let randX = Int(arc4random_uniform(UInt32(width)))
+        let randY = Int(arc4random_uniform(UInt32(height)))
+        let randWidth = Int(arc4random_uniform(3))
+        let randHeight = Int(arc4random_uniform(3))
+        
+        if let star = sender.view as? UITextView {
+            print("\(star.tag)")
+            
+            if star.frame.height > 3 {
+                star.frame = CGRect(x: randX, y: randY, width: randWidth, height: randHeight)
+            } else {
+                star.frame = CGRect(x: 20, y: 20, width: width - 40, height: height - 40)
+            }
+            print("\(star.frame.height)")
+        }
     }
 
 
