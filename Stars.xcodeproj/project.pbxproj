@@ -7,21 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8406C7C707C8AB5C158C7BB2 /* Pods_Stars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AFF922565017EEE61BBCFC /* Pods_Stars.framework */; };
 		B57283571DE2EA7800BEF3C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57283561DE2EA7800BEF3C1 /* AppDelegate.swift */; };
-		B57283591DE2EA7800BEF3C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57283581DE2EA7800BEF3C1 /* ViewController.swift */; };
+		B57283591DE2EA7800BEF3C1 /* GalaxyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57283581DE2EA7800BEF3C1 /* GalaxyVC.swift */; };
 		B572835C1DE2EA7800BEF3C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B572835A1DE2EA7800BEF3C1 /* Main.storyboard */; };
 		B572835E1DE2EA7800BEF3C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B572835D1DE2EA7800BEF3C1 /* Assets.xcassets */; };
 		B57283611DE2EA7800BEF3C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B572835F1DE2EA7800BEF3C1 /* LaunchScreen.storyboard */; };
+		B5B180F11DE5A9D0004F49EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5B180F01DE5A9D0004F49EE /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C2FB1D397FF21F6123B6FEA /* Pods-Stars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stars.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stars/Pods-Stars.debug.xcconfig"; sourceTree = "<group>"; };
 		B57283531DE2EA7800BEF3C1 /* Stars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B57283561DE2EA7800BEF3C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B57283581DE2EA7800BEF3C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B57283581DE2EA7800BEF3C1 /* GalaxyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalaxyVC.swift; sourceTree = "<group>"; };
 		B572835B1DE2EA7800BEF3C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B572835D1DE2EA7800BEF3C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B57283601DE2EA7800BEF3C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B57283621DE2EA7800BEF3C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5B180F01DE5A9D0004F49EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B7AFF922565017EEE61BBCFC /* Pods_Stars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDCEFD6AE4942C4D054F8F78 /* Pods-Stars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stars.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stars/Pods-Stars.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8406C7C707C8AB5C158C7BB2 /* Pods_Stars.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C7C7DD0B5130273303AF536 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6C2FB1D397FF21F6123B6FEA /* Pods-Stars.debug.xcconfig */,
+				DDCEFD6AE4942C4D054F8F78 /* Pods-Stars.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		77028CFCDD31F927EB0D8259 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7AFF922565017EEE61BBCFC /* Pods_Stars.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B56D7F1E1DE5B628007612A1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		B572834A1DE2EA7800BEF3C1 = {
 			isa = PBXGroup;
 			children = (
 				B57283551DE2EA7800BEF3C1 /* Stars */,
 				B57283541DE2EA7800BEF3C1 /* Products */,
+				2C7C7DD0B5130273303AF536 /* Pods */,
+				77028CFCDD31F927EB0D8259 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,7 +88,9 @@
 			isa = PBXGroup;
 			children = (
 				B57283561DE2EA7800BEF3C1 /* AppDelegate.swift */,
-				B57283581DE2EA7800BEF3C1 /* ViewController.swift */,
+				B56D7F1E1DE5B628007612A1 /* Resources */,
+				B57283581DE2EA7800BEF3C1 /* GalaxyVC.swift */,
+				B5B180F01DE5A9D0004F49EE /* GoogleService-Info.plist */,
 				B572835A1DE2EA7800BEF3C1 /* Main.storyboard */,
 				B572835D1DE2EA7800BEF3C1 /* Assets.xcassets */,
 				B572835F1DE2EA7800BEF3C1 /* LaunchScreen.storyboard */,
@@ -71,9 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B57283651DE2EA7800BEF3C1 /* Build configuration list for PBXNativeTarget "Stars" */;
 			buildPhases = (
+				6061BFA72113800E5A8FA453 /* [CP] Check Pods Manifest.lock */,
 				B572834F1DE2EA7800BEF3C1 /* Sources */,
 				B57283501DE2EA7800BEF3C1 /* Frameworks */,
 				B57283511DE2EA7800BEF3C1 /* Resources */,
+				57919CDB9636C6E3E7E6058F /* [CP] Embed Pods Frameworks */,
+				EDAC4C12727E80B7A2000583 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,18 +163,67 @@
 			files = (
 				B57283611DE2EA7800BEF3C1 /* LaunchScreen.storyboard in Resources */,
 				B572835E1DE2EA7800BEF3C1 /* Assets.xcassets in Resources */,
+				B5B180F11DE5A9D0004F49EE /* GoogleService-Info.plist in Resources */,
 				B572835C1DE2EA7800BEF3C1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		57919CDB9636C6E3E7E6058F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stars/Pods-Stars-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6061BFA72113800E5A8FA453 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EDAC4C12727E80B7A2000583 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Stars/Pods-Stars-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B572834F1DE2EA7800BEF3C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B57283591DE2EA7800BEF3C1 /* ViewController.swift in Sources */,
+				B57283591DE2EA7800BEF3C1 /* GalaxyVC.swift in Sources */,
 				B57283571DE2EA7800BEF3C1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +345,7 @@
 		};
 		B57283661DE2EA7800BEF3C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C2FB1D397FF21F6123B6FEA /* Pods-Stars.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Stars/Info.plist;
@@ -270,6 +358,7 @@
 		};
 		B57283671DE2EA7800BEF3C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDCEFD6AE4942C4D054F8F78 /* Pods-Stars.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Stars/Info.plist;
@@ -299,6 +388,7 @@
 				B57283671DE2EA7800BEF3C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
