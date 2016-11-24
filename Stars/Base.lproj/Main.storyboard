@@ -25,8 +25,12 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <navigationItem id="kne-6p-uSs">
-                                        <barButtonItem key="leftBarButtonItem" title="Login" id="HoX-86-LLl"/>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="dqJ-ua-9Yh"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Login" id="HoX-86-LLl">
+                                            <connections>
+                                                <action selector="loginAndSignUp:" destination="BYZ-38-t0r" id="2zB-7j-u1S"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dqJ-ua-9Yh"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -45,7 +49,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="138.98050974512745"/>
+            <point key="canvasLocation" x="1028" y="-517"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lmd-o6-TgP">
@@ -53,7 +57,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Du8-G1-jsk" sceneMemberID="viewController">
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="xU2-dV-9vv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="xU2-dV-9vv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
