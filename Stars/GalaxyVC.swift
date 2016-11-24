@@ -15,10 +15,21 @@ class GalaxyVC: UIViewController {
     var dbRef: FIRDatabaseReference!
     
     
+    @IBOutlet weak var accountBtn: UIBarButtonItem!
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+            if let user = user {
+                print(user.email)
+                self.accountBtn.title = user.email
+            } else {
+                // No user is signed in.
+            }
+        }
+        
         dbRef = FIRDatabase.database().reference().child("stars")
 
         let bounds = UIScreen.main.bounds
@@ -84,54 +95,60 @@ class GalaxyVC: UIViewController {
     }
     
     
-    @IBAction func loginAndSignUp(_ sender: Any) {
-        let userAlert = UIAlertController(title: "Login/Sign Up", message: "Enter your email and password to create a journal.  We'll never spam you!", preferredStyle: .alert)
-        print("Do you see it?")
+    @IBAction func accountBtnPressed(_ sender: Any) {
+        
+        if accountBtn.title == "Login" {
+            
+            let userAlert = UIAlertController(title: "Login or Sign Up", message: "Enter your email and password to save your journal.  We'll never spam you!", preferredStyle: .alert)
 
-        userAlert.addTextField { (textField:UITextField) in
-            textField.placeholder = "Email"
+            userAlert.addTextField { (textField:UITextField) in
+                textField.placeholder = "Email"
+            }
+            userAlert.addTextField { (textField:UITextField) in
+                textField.isSecureTextEntry = true
+                textField.placeholder = "Password"
+            }
+            
+            userAlert.addAction(UIAlertAction(title: "Sign In", style: .default, handler: { (action: UIAlertAction) in
+                //let userNameTextField = userAlert.textFields!.first()!
+                let emailTextField = userAlert.textFields!.first!
+                let passwordTextField = userAlert.textFields!.last!
+                
+                FIRAuth.auth()?.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
+                    if error != nil {
+                        print(error?.localizedDescription)
+                        let errorAlert = UIAlertController(title: "Error", message: "\(error?.localizedDescription)", preferredStyle: .alert)
+                        errorAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction) in
+                        }))
+                        self.present(errorAlert, animated: true, completion: nil)
+                    }
+                })
+            }))
+            
+            userAlert.addAction(UIAlertAction(title: "Sign Up", style: .default, handler: { (action: UIAlertAction) in
+                let emailTextField = userAlert.textFields!.first!
+                let passwordTextField = userAlert.textFields!.last!
+                
+                FIRAuth.auth()?.createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
+                    if error != nil {
+                        print(error?.localizedDescription)
+                        let errorAlert = UIAlertController(title: "Error", message: "\(error?.localizedDescription)", preferredStyle: .alert)
+                        errorAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction) in
+                        }))
+                        self.present(errorAlert, animated: true, completion: nil)
+                    }
+                })
+            }))
+            
+            userAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction) in
+                
+            }))
+            
+            self.present(userAlert, animated: true, completion: nil)
+            
+        } else {
+            print("Here's your account info!...")
         }
-        userAlert.addTextField { (textField:UITextField) in
-            textField.isSecureTextEntry = true
-            textField.placeholder = "Password"
-        }
-        
-        userAlert.addAction(UIAlertAction(title: "Sign In", style: .default, handler: { (action: UIAlertAction) in
-            //let userNameTextField = userAlert.textFields!.first()!
-            let emailTextField = userAlert.textFields!.first!
-            let passwordTextField = userAlert.textFields!.last!
-            
-            FIRAuth.auth()?.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
-                if error != nil {
-                    print(error?.localizedDescription)
-                    let errorAlert = UIAlertController(title: "Error", message: "\(error?.localizedDescription)", preferredStyle: .alert)
-                    errorAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction) in
-                    }))
-                    self.present(errorAlert, animated: true, completion: nil)
-                }
-            })
-        }))
-        
-        userAlert.addAction(UIAlertAction(title: "Sign Up", style: .default, handler: { (action: UIAlertAction) in
-            let emailTextField = userAlert.textFields!.first!
-            let passwordTextField = userAlert.textFields!.last!
-            
-            FIRAuth.auth()?.createUser(withEmail: emailTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
-                if error != nil {
-                    print(error?.localizedDescription)
-                    let errorAlert = UIAlertController(title: "Error", message: "\(error?.localizedDescription)", preferredStyle: .alert)
-                    errorAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction) in
-                    }))
-                    self.present(errorAlert, animated: true, completion: nil)
-                }
-            })
-        }))
-        
-        userAlert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (action: UIAlertAction) in
-            
-        }))
-        
-        self.present(userAlert, animated: true, completion: nil)
     }
     
     
@@ -165,8 +182,6 @@ class GalaxyVC: UIViewController {
             print("\(star.frame.height)")
         }
     }
-
-
 
 }
 

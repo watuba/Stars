@@ -27,7 +27,7 @@
                                     <navigationItem id="kne-6p-uSs">
                                         <barButtonItem key="leftBarButtonItem" title="Login" id="HoX-86-LLl">
                                             <connections>
-                                                <action selector="loginAndSignUp:" destination="BYZ-38-t0r" id="2zB-7j-u1S"/>
+                                                <action selector="accountBtnPressed:" destination="BYZ-38-t0r" id="eBf-Le-DCc"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dqJ-ua-9Yh"/>
@@ -46,6 +46,9 @@
                         <barButtonItem key="leftBarButtonItem" title="Login" id="vik-V8-Syz"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="q2S-Z6-JC6"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="accountBtn" destination="HoX-86-LLl" id="PzK-eb-9YT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
