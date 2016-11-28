@@ -10,18 +10,21 @@
 		8406C7C707C8AB5C158C7BB2 /* Pods_Stars.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7AFF922565017EEE61BBCFC /* Pods_Stars.framework */; };
 		B532E80F1DE69AFA00B66976 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532E80E1DE69AFA00B66976 /* User.swift */; };
 		B532E8111DEBA2E700B66976 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532E8101DEBA2E700B66976 /* Star.swift */; };
+		B532E8191DEC2A0D00B66976 /* StarText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B532E8181DEC2A0D00B66976 /* StarText.swift */; };
 		B57283571DE2EA7800BEF3C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57283561DE2EA7800BEF3C1 /* AppDelegate.swift */; };
 		B57283591DE2EA7800BEF3C1 /* GalaxyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57283581DE2EA7800BEF3C1 /* GalaxyVC.swift */; };
 		B572835C1DE2EA7800BEF3C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B572835A1DE2EA7800BEF3C1 /* Main.storyboard */; };
 		B572835E1DE2EA7800BEF3C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B572835D1DE2EA7800BEF3C1 /* Assets.xcassets */; };
 		B57283611DE2EA7800BEF3C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B572835F1DE2EA7800BEF3C1 /* LaunchScreen.storyboard */; };
 		B5B180F11DE5A9D0004F49EE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5B180F01DE5A9D0004F49EE /* GoogleService-Info.plist */; };
+		B5D224A41DEC336D008AEA46 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D224A31DEC336D008AEA46 /* ShareButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6C2FB1D397FF21F6123B6FEA /* Pods-Stars.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stars.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Stars/Pods-Stars.debug.xcconfig"; sourceTree = "<group>"; };
 		B532E80E1DE69AFA00B66976 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B532E8101DEBA2E700B66976 /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		B532E8181DEC2A0D00B66976 /* StarText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarText.swift; sourceTree = "<group>"; };
 		B57283531DE2EA7800BEF3C1 /* Stars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B57283561DE2EA7800BEF3C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B57283581DE2EA7800BEF3C1 /* GalaxyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalaxyVC.swift; sourceTree = "<group>"; };
@@ -30,6 +33,7 @@
 		B57283601DE2EA7800BEF3C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B57283621DE2EA7800BEF3C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5B180F01DE5A9D0004F49EE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B5D224A31DEC336D008AEA46 /* ShareButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
 		B7AFF922565017EEE61BBCFC /* Pods_Stars.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stars.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDCEFD6AE4942C4D054F8F78 /* Pods-Stars.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Stars.release.xcconfig"; path = "Pods/Target Support Files/Pods-Stars/Pods-Stars.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +79,8 @@
 		B532E80C1DE69ABC00B66976 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B532E8181DEC2A0D00B66976 /* StarText.swift */,
+				B5D224A31DEC336D008AEA46 /* ShareButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -255,6 +261,8 @@
 			files = (
 				B57283591DE2EA7800BEF3C1 /* GalaxyVC.swift in Sources */,
 				B57283571DE2EA7800BEF3C1 /* AppDelegate.swift in Sources */,
+				B532E8191DEC2A0D00B66976 /* StarText.swift in Sources */,
+				B5D224A41DEC336D008AEA46 /* ShareButton.swift in Sources */,
 				B532E80F1DE69AFA00B66976 /* User.swift in Sources */,
 				B532E8111DEBA2E700B66976 /* Star.swift in Sources */,
 			);

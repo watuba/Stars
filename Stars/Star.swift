@@ -45,4 +45,8 @@ struct Star {
             addedByUser = ""
         }
     }
+
+    func toAnyObject() -> AnyObject {
+        return ["content":content, "addedbyUser":addedByUser] as AnyObject
+    }
 }

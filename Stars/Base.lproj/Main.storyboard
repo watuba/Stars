@@ -24,6 +24,7 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYs-f5-tvs">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem id="kne-6p-uSs">
                                         <barButtonItem key="leftBarButtonItem" title="Login" id="HoX-86-LLl">
@@ -41,7 +42,7 @@
                             </navigationBar>
                             <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qe9-l2-CDa">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <bool key="isElement" value="NO"/>
                                 </accessibility>
@@ -52,32 +53,50 @@
                             <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wzP-PD-WvB">
                                 <rect key="frame" x="40" y="84" width="240" height="400"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ilg-Ph-6TH">
-                                        <rect key="frame" x="8" y="8" width="224" height="238"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ilg-Ph-6TH" customClass="StarText" customModule="Stars" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="8" width="224" height="301"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="240" id="aX5-Vn-90R"/>
+                                            <constraint firstAttribute="height" constant="300" id="aX5-Vn-90R"/>
                                         </constraints>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEU-gW-Zzm">
-                                        <rect key="frame" x="186" y="362" width="46" height="30"/>
-                                        <state key="normal" title="Cancel"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYi-ah-KIL" customClass="ShareButton" customModule="Stars" customModuleProvider="target">
+                                        <rect key="frame" x="136" y="344" width="104" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="104" id="EEY-OG-sR9"/>
+                                            <constraint firstAttribute="height" constant="50" id="gcW-mg-Van"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                        <state key="normal" title="Share">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
-                                            <action selector="cancelBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DzU-6X-BV7"/>
+                                            <action selector="shareBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kWa-ob-F9R"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please share your experience of life right now.   Shares are totally anonymous." lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOe-l3-OVS">
+                                        <rect key="frame" x="12" y="338" width="137" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="3At-pD-Qlg"/>
+                                            <constraint firstAttribute="width" constant="137" id="6jP-dL-tol"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.6588235294" green="0.74117647060000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="3MD-bp-zVa"/>
-                                    <constraint firstAttribute="trailing" secondItem="ilg-Ph-6TH" secondAttribute="trailing" constant="8" id="Dac-HM-s3V"/>
-                                    <constraint firstAttribute="trailing" secondItem="aEU-gW-Zzm" secondAttribute="trailing" constant="8" id="E5U-B8-2rT"/>
-                                    <constraint firstItem="ilg-Ph-6TH" firstAttribute="leading" secondItem="wzP-PD-WvB" secondAttribute="leading" constant="8" id="FCt-4F-BBa"/>
-                                    <constraint firstItem="ilg-Ph-6TH" firstAttribute="top" secondItem="wzP-PD-WvB" secondAttribute="top" constant="8" id="fKX-tO-ACg"/>
-                                    <constraint firstAttribute="bottom" secondItem="aEU-gW-Zzm" secondAttribute="bottom" constant="8" id="hda-8g-2St"/>
+                                    <constraint firstAttribute="trailing" secondItem="ilg-Ph-6TH" secondAttribute="trailing" constant="16" id="Dac-HM-s3V"/>
+                                    <constraint firstAttribute="bottom" secondItem="pYi-ah-KIL" secondAttribute="bottom" constant="12" id="EN4-iT-gI8"/>
+                                    <constraint firstItem="ilg-Ph-6TH" firstAttribute="leading" secondItem="wzP-PD-WvB" secondAttribute="leading" constant="16" id="FCt-4F-BBa"/>
+                                    <constraint firstAttribute="trailing" secondItem="pYi-ah-KIL" secondAttribute="trailing" constant="12" id="KhI-RB-AlZ"/>
+                                    <constraint firstItem="oOe-l3-OVS" firstAttribute="leading" secondItem="wzP-PD-WvB" secondAttribute="leading" constant="12" id="LPF-oa-f97"/>
+                                    <constraint firstAttribute="bottom" secondItem="oOe-l3-OVS" secondAttribute="bottom" constant="12" id="f6K-cX-4C3"/>
+                                    <constraint firstItem="ilg-Ph-6TH" firstAttribute="top" secondItem="wzP-PD-WvB" secondAttribute="top" constant="16" id="fKX-tO-ACg"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -103,6 +122,7 @@
                         <outlet property="accountBtn" destination="HoX-86-LLl" id="PzK-eb-9YT"/>
                         <outlet property="addStarView" destination="wzP-PD-WvB" id="3J1-ft-8nM"/>
                         <outlet property="cancelByClickingBtn" destination="qe9-l2-CDa" id="JoB-xl-nz7"/>
+                        <outlet property="shareTextView" destination="ilg-Ph-6TH" id="PgH-Rv-I0W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

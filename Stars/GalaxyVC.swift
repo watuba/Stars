@@ -13,16 +13,18 @@ import FirebaseAuth
 class GalaxyVC: UIViewController, UITextViewDelegate {
 
     var dbRef: FIRDatabaseReference!
-    
+    var stars = [Star]()
 
     @IBOutlet weak var accountBtn: UIBarButtonItem!
     @IBOutlet weak var addStarView: UIView!
     @IBOutlet weak var cancelByClickingBtn: UIButton!
+    @IBOutlet weak var shareTextView: StarText!
     
     var effect:UIVisualEffect!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dbRef = FIRDatabase.database().reference().child("stars")
         
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if let user = user {
@@ -35,7 +37,7 @@ class GalaxyVC: UIViewController, UITextViewDelegate {
         
         addStarView.layer.cornerRadius = 5
         
-        dbRef = FIRDatabase.database().reference().child("stars")
+        
 
         let bounds = UIScreen.main.bounds
         let width = bounds.size.width
@@ -94,7 +96,9 @@ class GalaxyVC: UIViewController, UITextViewDelegate {
             star.text = "This is a really good share.  Thanks for listening!"
             
             //stars[i] = star
+            
             self.view.addSubview(star)
+            self.view.sendSubview(toBack: star)
             
         }
     }
@@ -109,7 +113,7 @@ class GalaxyVC: UIViewController, UITextViewDelegate {
         self.cancelByClickingBtn.alpha = 0.0
         
         UIView.animate(withDuration: 0.4) {
-            self.cancelByClickingBtn.alpha = 0.1
+            self.cancelByClickingBtn.alpha = 0.6
             self.addStarView.isHidden = false
             self.addStarView.alpha = 1
             self.addStarView.transform = CGAffineTransform.identity
@@ -120,17 +124,40 @@ class GalaxyVC: UIViewController, UITextViewDelegate {
         UIView.animate(withDuration: 0.3, animations: {
             self.addStarView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
             self.addStarView.alpha = 0
-            
-            self.cancelByClickingBtn.alpha = 0.1
-        }) { (success:Bool) in
             self.cancelByClickingBtn.alpha = 0
+            
+        }) { (success:Bool) in
             self.addStarView.isHidden = true
         }
     }
     
+    @IBAction func shareBtnPressed(_ sender: Any) {
+        if (shareTextView.text != "") {
+            
+            var star: Star
+            
+            if let userEmail = FIRAuth.auth()?.currentUser?.email {
+                star = Star(content: shareTextView.text, addedByUser: "\(userEmail)")
+                
+            } else {
+                star = Star(content: shareTextView.text, addedByUser: "")
+            }
+            let starRef = self.dbRef.childByAutoId()
+            starRef.setValue(star.toAnyObject())
+            
+            shareTextView.text = ""
+            shareTextView.placeholderText = "Describe your experience right now..."
+            animateOut()
+            
+        } else {
+            
+            //Add error messages, change above to include rejection if too few characters, etc
+        }
+    }
     @IBAction func cancelByClickingBtnPressed(_ sender: Any) {
         animateOut()
     }
+    
     @IBAction func accountBtnPressed(_ sender: Any) {
         
         if accountBtn.title == "Login" {
@@ -196,6 +223,10 @@ class GalaxyVC: UIViewController, UITextViewDelegate {
     
     @IBAction func addBtnPressed(_ sender: Any) {
         
+        if shareTextView.text == "" {
+            shareTextView.placeholderText = "Describe your experience right now..."
+        }
+        
         animateIn()
         
         /*
@@ -257,7 +288,8 @@ class GalaxyVC: UIViewController, UITextViewDelegate {
             } else {
                 UITextView.animate(withDuration: 0.4, delay: 0.0, options: [.curveEaseInOut], animations: {
                     star.frame = CGRect(x: 20, y: height/2 - height/6, width: width - 40, height: height/3)
-                    star.alpha = 0.7
+                    self.view.bringSubview(toFront: star)
+                    star.alpha = 1.0
                 }, completion: nil)
                 
             }
