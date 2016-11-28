@@ -22,14 +22,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJY-Fl-tX6">
+                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYs-f5-tvs">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <navigationItem id="kne-6p-uSs">
+                                        <barButtonItem key="leftBarButtonItem" title="Login" id="HoX-86-LLl">
+                                            <connections>
+                                                <action selector="accountBtnPressed:" destination="BYZ-38-t0r" id="eBf-Le-DCc"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dqJ-ua-9Yh">
+                                            <connections>
+                                                <action selector="addBtnPressed:" destination="BYZ-38-t0r" id="fIw-oG-P95"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qe9-l2-CDa">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4ny-gf-2dr">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                                <blurEffect style="light"/>
-                            </visualEffectView>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <connections>
+                                    <action selector="cancelByClickingBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PMx-7J-hwY"/>
+                                </connections>
+                            </button>
                             <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wzP-PD-WvB">
                                 <rect key="frame" x="40" y="84" width="240" height="400"/>
                                 <subviews>
@@ -61,35 +80,18 @@
                                     <constraint firstAttribute="bottom" secondItem="aEU-gW-Zzm" secondAttribute="bottom" constant="8" id="hda-8g-2St"/>
                                 </constraints>
                             </view>
-                            <navigationBar contentMode="scaleToFill" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYs-f5-tvs">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <items>
-                                    <navigationItem id="kne-6p-uSs">
-                                        <barButtonItem key="leftBarButtonItem" title="Login" id="HoX-86-LLl">
-                                            <connections>
-                                                <action selector="accountBtnPressed:" destination="BYZ-38-t0r" id="eBf-Le-DCc"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="dqJ-ua-9Yh">
-                                            <connections>
-                                                <action selector="addBtnPressed:" destination="BYZ-38-t0r" id="fIw-oG-P95"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wJY-Fl-tX6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="4s6-1w-H1k"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wJY-Fl-tX6" secondAttribute="bottom" id="536-HB-QhX"/>
+                            <constraint firstItem="qe9-l2-CDa" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="LRK-3i-hc0"/>
                             <constraint firstAttribute="trailing" secondItem="TYs-f5-tvs" secondAttribute="trailing" id="Qab-j5-s9c"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qe9-l2-CDa" secondAttribute="bottom" id="UnM-R4-WEX"/>
                             <constraint firstItem="TYs-f5-tvs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VJH-u4-bX2"/>
                             <constraint firstItem="wzP-PD-WvB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="WMo-Xj-fe7"/>
                             <constraint firstItem="wzP-PD-WvB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="eaw-0f-a8F"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wzP-PD-WvB" secondAttribute="trailing" constant="24" id="iEW-qa-VBR"/>
-                            <constraint firstItem="wJY-Fl-tX6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="iaK-M1-OEl"/>
-                            <constraint firstAttribute="trailing" secondItem="wJY-Fl-tX6" secondAttribute="trailing" id="j8Z-FH-7lZ"/>
+                            <constraint firstItem="qe9-l2-CDa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="kas-NP-dcy"/>
+                            <constraint firstAttribute="trailing" secondItem="qe9-l2-CDa" secondAttribute="trailing" id="rur-Xf-xmt"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="TYs-f5-tvs" secondAttribute="bottom" id="wU6-wm-cOq"/>
                         </constraints>
                     </view>
@@ -100,7 +102,7 @@
                     <connections>
                         <outlet property="accountBtn" destination="HoX-86-LLl" id="PzK-eb-9YT"/>
                         <outlet property="addStarView" destination="wzP-PD-WvB" id="3J1-ft-8nM"/>
-                        <outlet property="visualEffectView" destination="wJY-Fl-tX6" id="d1p-Uy-FeD"/>
+                        <outlet property="cancelByClickingBtn" destination="qe9-l2-CDa" id="JoB-xl-nz7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

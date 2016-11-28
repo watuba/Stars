@@ -17,7 +17,7 @@ class GalaxyVC: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var accountBtn: UIBarButtonItem!
     @IBOutlet weak var addStarView: UIView!
-    @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    @IBOutlet weak var cancelByClickingBtn: UIButton!
     
     var effect:UIVisualEffect!
     
@@ -32,9 +32,6 @@ class GalaxyVC: UIViewController, UITextViewDelegate {
                 // No user is signed in.
             }
         }
-        
-        effect = visualEffectView.effect
-        visualEffectView.effect = nil
         
         addStarView.layer.cornerRadius = 5
         
@@ -109,9 +106,10 @@ class GalaxyVC: UIViewController, UITextViewDelegate {
         addStarView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
         addStarView.alpha = 0
         addStarView.isHidden = false
+        self.cancelByClickingBtn.alpha = 0.0
         
         UIView.animate(withDuration: 0.4) {
-            //self.visualEffectView.effect = self.effect
+            self.cancelByClickingBtn.alpha = 0.1
             self.addStarView.isHidden = false
             self.addStarView.alpha = 1
             self.addStarView.transform = CGAffineTransform.identity
@@ -123,13 +121,16 @@ class GalaxyVC: UIViewController, UITextViewDelegate {
             self.addStarView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
             self.addStarView.alpha = 0
             
-            //self.visualEffectView.effect = nil
+            self.cancelByClickingBtn.alpha = 0.1
         }) { (success:Bool) in
-            //self.addStarView.removeFromSuperview()
+            self.cancelByClickingBtn.alpha = 0
             self.addStarView.isHidden = true
         }
     }
     
+    @IBAction func cancelByClickingBtnPressed(_ sender: Any) {
+        animateOut()
+    }
     @IBAction func accountBtnPressed(_ sender: Any) {
         
         if accountBtn.title == "Login" {
