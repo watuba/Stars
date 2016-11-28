@@ -10,13 +10,16 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 
-class GalaxyVC: UIViewController {
+class GalaxyVC: UIViewController, UITextViewDelegate {
 
     var dbRef: FIRDatabaseReference!
     
-    
-    @IBOutlet weak var accountBtn: UIBarButtonItem!
 
+    @IBOutlet weak var accountBtn: UIBarButtonItem!
+    @IBOutlet weak var addStarView: UIView!
+    @IBOutlet weak var visualEffectView: UIVisualEffectView!
+    
+    var effect:UIVisualEffect!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,11 @@ class GalaxyVC: UIViewController {
                 // No user is signed in.
             }
         }
+        
+        effect = visualEffectView.effect
+        visualEffectView.effect = nil
+        
+        addStarView.layer.cornerRadius = 5
         
         dbRef = FIRDatabase.database().reference().child("stars")
 
@@ -95,6 +103,33 @@ class GalaxyVC: UIViewController {
     }
     
     
+    func animateIn() {
+        //self.view.addSubview(addStarView)
+        
+        addStarView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+        addStarView.alpha = 0
+        addStarView.isHidden = false
+        
+        UIView.animate(withDuration: 0.4) {
+            //self.visualEffectView.effect = self.effect
+            self.addStarView.isHidden = false
+            self.addStarView.alpha = 1
+            self.addStarView.transform = CGAffineTransform.identity
+        }
+    }
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.addStarView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.addStarView.alpha = 0
+            
+            //self.visualEffectView.effect = nil
+        }) { (success:Bool) in
+            //self.addStarView.removeFromSuperview()
+            self.addStarView.isHidden = true
+        }
+    }
+    
     @IBAction func accountBtnPressed(_ sender: Any) {
         
         if accountBtn.title == "Login" {
@@ -152,6 +187,52 @@ class GalaxyVC: UIViewController {
     }
     
     
+    
+    @IBAction func cancelBtnPressed(_ sender: Any) {
+        
+        animateOut()
+    }
+    
+    @IBAction func addBtnPressed(_ sender: Any) {
+        
+        animateIn()
+        
+        /*
+        let postAlert = UIAlertController(title: "\n\n\n\n\n\n\n\n\nNew Star", message: "Please share your experience of life right now", preferredStyle: .actionSheet)
+        
+        let margin:CGFloat = 8.0
+        let rect = CGRect(x: margin,y: margin,width: postAlert.view.bounds.size.width - margin * 4.0,height: 150.0)
+        let textView = UITextView(frame: rect)
+        
+        textView.isScrollEnabled = true
+        textView.font               = UIFont(name: "Helvetica", size: 15)
+        textView.textColor          = UIColor.lightGray
+        textView.backgroundColor    = UIColor.white
+        textView.layer.borderColor  = UIColor.lightGray.cgColor
+        textView.layer.borderWidth  = 1.0
+        textView.text               = "Share here"
+        textView.delegate           = self
+        
+        
+        postAlert.view.addSubview(textView)
+        
+        postAlert.addAction(UIAlertAction(title: "Share", style: .default, handler: { (action: UIAlertAction) in
+
+        
+        }))
+        
+        postAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action:UIAlertAction) in
+            
+        }))
+        
+        
+        self.present(postAlert, animated: true, completion: nil)
+        
+        */
+    }
+    
+    
+    
     func handleTap(sender: UITapGestureRecognizer) {
         print("tap")
         let bounds = UIScreen.main.bounds
@@ -180,6 +261,13 @@ class GalaxyVC: UIViewController {
                 
             }
             print("\(star.frame.height)")
+        }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray{
+            textView.text = ""
+            textView.textColor = UIColor.darkGray
         }
     }
 
